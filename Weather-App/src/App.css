@@ -1,0 +1,19 @@
+.App {
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  select {
+    margin: 10px;
+    padding: 5px;
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  h2 {
+    margin-top: 20px;
+  }
