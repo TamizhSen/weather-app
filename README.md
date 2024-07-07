@@ -15,6 +15,6 @@ I went through the API documentation to find few more cities and their ID ’s t
 
 3. npm install
 
-4. npm start
+4. npm start / npm run dev
 
 
