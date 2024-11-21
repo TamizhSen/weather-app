@@ -1,7 +1,18 @@
 import React from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 
+/**
+ * DataTable Component
+ * Displays the weather forecast for a selected date in a tabular format.
+ * @param {Object} forecastData - The weather forecast data fetched from the OpenWeatherMap API.
+ * @param {string} selectedDate - The date selected by the user to view the forecast for.
+ */
 const DataTable = ({ forecastData, selectedDate }) => {
+    /**
+   * Formats a UNIX timestamp into a readable date format (e.g., "1st January 12:00 PM").
+   * @param {number} timestamp - The UNIX timestamp from the forecast data.
+   * @returns {string} - Formatted date string.
+   */
   const formatDate = (timestamp) => {
     const date = new Date(timestamp * 1000);
     const day = date.getDate();

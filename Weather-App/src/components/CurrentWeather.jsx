@@ -1,9 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Box } from '@mui/material';
 
+/**
+ * Component to display current weather for a selected city
+ * @param {Object} selectedCity - The city object selected by the user, containing its ID and name
+ */
 const CurrentWeather = ({ selectedCity }) => {
   const [weatherData, setWeatherData] = useState(null);
 
+    /**
+   * useEffect Hook:
+   * Triggers when `selectedCity` changes.
+   * Fetches current weather data for the selected city using OpenWeatherMap API.
+   */
   useEffect(() => {
     if (selectedCity) {
       const fetchWeather = async () => {
@@ -21,6 +30,7 @@ const CurrentWeather = ({ selectedCity }) => {
     }
   }, [selectedCity]);
 
+  // Display a message if no weather data is available
   if (!weatherData) {
     return <div>Please select a city to see the weather.</div>;
   }

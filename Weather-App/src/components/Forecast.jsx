@@ -3,10 +3,17 @@ import { Button, Typography, Box } from '@mui/material';
 import DataTable from './DataTable';
 import '../styles/Forecast.css';
 
+/**
+ * Forecast Component
+ * Displays the 5-day weather forecast for the selected city.
+ * Includes the ability to view forecasts for individual days.
+ * @param {Object} selectedCity - The city object selected by the user, containing its ID and name.
+ */
+
 const Forecast = ({ selectedCity }) => {
-  const [forecastData, setForecastData] = useState(null);
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [isTableVisible, setIsTableVisible] = useState(false);
+  const [forecastData, setForecastData] = useState(null);  // State to store forecast data
+  const [selectedDate, setSelectedDate] = useState(null); // State to track the currently selected date
+  const [isTableVisible, setIsTableVisible] = useState(false); // State to toggle the visibility of the forecast table
 
   const fetchForecast = async () => {
     try {
@@ -18,7 +25,7 @@ const Forecast = ({ selectedCity }) => {
 
       const uniqueDates = getUniqueDates(data.list);
       if (uniqueDates.length > 0) {
-        setSelectedDate(uniqueDates[0]);
+        setSelectedDate(uniqueDates[0]); // Set the first date as the default
       }
       setIsTableVisible(true);
     } catch (error) {
@@ -26,6 +33,11 @@ const Forecast = ({ selectedCity }) => {
     }
   };
 
+  /**
+   * Extracts unique dates from the forecast data list.
+   * @param {Array} list - The forecast list from API response.
+   * @returns {Array} Array of unique dates.
+   */
   const getUniqueDates = (list) => {
     const dates = list.map(item => new Date(item.dt * 1000).toDateString());
     return [...new Set(dates)];
@@ -39,6 +51,7 @@ const Forecast = ({ selectedCity }) => {
     setIsTableVisible(false);
   };
 
+  // Display a message if no city is selected
   if (!selectedCity) {
     return <div>Please select a city to see the forecast.</div>;
   }

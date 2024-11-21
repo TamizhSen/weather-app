@@ -6,6 +6,7 @@ import Forecast from './components/Forecast';
 import './App.css';
 
 function App() {
+  // State to manage the selected city, weather data, and forecast data
   const [selectedCity, setSelectedCity] = useState(null);
   const [weatherData, setWeatherData] = useState(null);
   const [forecastData, setForecastData] = useState(null);
